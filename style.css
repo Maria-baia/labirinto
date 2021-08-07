@@ -1,5 +1,5 @@
 .w {
-    background-color: aqua;
+    background-color: #184059;
     width: 40px;
     height: 40px;
     z-index: 1;
@@ -10,14 +10,34 @@
 .branco, .s, .f{
     width: 40px;
     height: 40px;
-    background-color: blue;
+    background-color: #5D8AA6;
 }
-.box { 
+#patinho { 
     width: 20px; 
     height: 20px; 
     position: absolute;
-    left: 15px;
-    top: 378px; 
+    left: 228px;
+    top: 450px;
     background-color: black;
     border-radius: 50%;
+}
+h1, p{
+    color: #184059;
+    text-align: center;
+}
+#labirinto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body{
+    background-color: #D7D7D9;
+}
+.venceu{
+    position: absolute;
+    color: #184059;
+    z-index: 1;
+    background-color: #5D8AA6;
+    padding: 280px;
+    font-size: 35px;
 }
