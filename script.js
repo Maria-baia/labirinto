@@ -1,4 +1,10 @@
 let labirinto = document.getElementById("labirinto");
+let div_start 
+let boxTop 
+let boxLeft 
+
+let posicaox = 9
+let posicaoy = 0
 
 let map = [
   "WWWWWWWWWWWWWWWWWWWWW",
@@ -21,11 +27,11 @@ for(i=0;i<map.length;i++){
   map[i] = map[i].split("")
 }
 function mapa(){
-  for (i = 0; i < map.length; i++) {
+  for (i=0; i<map.length; i++) {
     let linha = document.createElement("div");
     linha.classList.add("linha");
     labirinto.appendChild(linha);
-    for (j = 0; j < map[i].length; j++) {
+    for (j=0; j<map[i].length; j++) {
       if (map[i][j] === "W") {
         let parede = document.createElement("div");
         parede.classList.add("w");
@@ -37,6 +43,8 @@ function mapa(){
       } else if (map[i][j] === "S") {
         let start = document.createElement("div");
         start.classList.add("s");
+        start.setAttribute("id", "start");
+        div_start = start
         linha.appendChild(start);
       } else {
         let fim = document.createElement("div");
@@ -46,14 +54,12 @@ function mapa(){
     }
   }
 }
-
-let boxTop = 450;
-let boxLeft = 228;
-
-let posicaox=9;
-let posicaoy=0;
-
+mapa();
+boxTop = div_start.offsetTop + 7
+boxLeft = div_start.offsetLeft + 7
 let bolinha = document.getElementById("patinho");
+bolinha.style.left = div_start.offsetLeft + 7 + "px";
+bolinha.style.top =  div_start.offsetTop + 7 + "px";
 
 document.addEventListener("keydown", (event) => {
   let keyName = event.key;
@@ -112,6 +118,3 @@ document.addEventListener("keydown", (event) => {
 function retorno(){
   document.location.reload(true)
 }
-
-
-mapa();
